@@ -1,0 +1,77 @@
+.faq-section {
+    background-color: var(--nova-bg);
+    padding: 100px 10%;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-header h2 span {
+    color: var(--nova-blue);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--nova-card-bg);
+    border: 1px solid #2d3748;
+    border-radius: 16px;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--nova-blue);
+}
+
+.faq-item.active {
+    border-color: var(--nova-blue);
+    background: linear-gradient(145deg, #161e2d 0%, #0a0f18 100%);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question h3 {
+    color: var(--nova-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.faq-icon {
+    color: var(--nova-blue);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Suficiente para el texto */
+    margin-top: 15px;
+}
+
+.faq-answer p {
+    color: var(--nova-text-muted);
+    line-height: 1.6;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
+}

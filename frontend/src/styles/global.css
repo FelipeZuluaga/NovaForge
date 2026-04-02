@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+  --nova-blue: #0056b3;        /* El azul de tu logo */
+  --nova-bg: #0a0f18;          /* Azul casi negro (Fondo principal) */
+  --nova-card-bg: #161e2d;     /* Azul oscuro para tarjetas */
+  --nova-white: #ffffff;
+  --nova-text-muted: #94a3b8;
+  --nova-accent: #3b82f6;      /* Azul vibrante para detalles */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--nova-bg); /* Toda la página será oscura y elegante */
+  color: var(--nova-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  padding: 100px 10%;
+}

@@ -1,0 +1,180 @@
+.contact-section {
+    background-color: var(--nova-bg);
+    padding: 100px 10%;
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-info h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.contact-info h2 span {
+    color: var(--nova-blue);
+}
+
+.contact-info p {
+    color: var(--nova-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background: var(--nova-card-bg);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #2d3748;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: #0a0f18;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--nova-blue);
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.2);
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--nova-blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #004494;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-container { grid-template-columns: 1fr; text-align: center; }
+}
+/* Estilo para el select (Desplegable de intereses) */
+.form-select {
+    width: 100%;
+    padding: 15px;
+    background: #0a0f18; /* Fondo oscuro como los inputs */
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    cursor: pointer;
+    appearance: none; /* Elimina la flecha por defecto */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
+    transition: 0.3s;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--nova-blue);
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.2);
+}
+
+/* Estilo del Botón de Envío */
+.btn-submit {
+    width: 100%;
+    padding: 18px; /* Un poco más alto para que destaque */
+    background: var(--nova-blue);
+    color: white;
+    border: none;
+    border-radius: 14px; /* Bordes un poco más curvos como el Hero */
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--nova-accent); /* El azul más claro que definiste antes */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(-1px);
+}
+
+/* Ajuste para los inputs y textarea para que sean idénticos */
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: #0a0f18;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    transition: 0.3s;
+}
+/* Nuevo botón de Casos de Éxito */
+.btn-secondary-outline {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: var(--nova-white);
+    border: 1px solid #2d3748; /* Borde sutil */
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px; /* Espacio con el botón azul */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-secondary-outline:hover {
+    border-color: var(--nova-blue);
+    background: rgba(0, 86, 179, 0.05);
+    color: var(--nova-blue);
+}
+
+/* Opcional: Agregar un icono pequeño antes del texto en el CSS */
+.btn-secondary-outline::before {
+    content: "📁"; /* Puedes usar un icono de carpeta o similar */
+    font-size: 1.1rem;
+}
+
+/* Ajuste del botón principal para que respire mejor */
+.btn-submit {
+    margin-top: 0; /* Ya tiene margen el botón de arriba */
+}
