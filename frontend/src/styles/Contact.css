@@ -17,6 +17,7 @@
     font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.2;
+    color: var(--nova-white); /* ◄ AGREGA ESTA LÍNEA */
 }
 
 .contact-info h2 span {
