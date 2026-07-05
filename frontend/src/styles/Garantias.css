@@ -34,12 +34,29 @@
 .garantia-card:hover {
     transform: translateY(-10px);
     border-color: var(--nova-blue);
-    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.15);
 }
 
+/* --- ESTILO PROFESIONAL PARA LOS ICONOS SVG --- */
 .garantia-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 86, 179, 0.1); /* Círculo de fondo suave */
+    border-radius: 20px;
+    margin-bottom: 25px;
+    color: var(--nova-blue);
+    font-size: 2rem; /* Tamaño del icono dentro del contenedor */
+    transition: all 0.4s ease;
+}
+
+/* Efecto al pasar el mouse por la tarjeta */
+.garantia-card:hover .garantia-icon {
+    background: var(--nova-blue);
+    color: #ffffff;
+    transform: rotate(5deg) scale(1.1);
 }
 
 .garantia-card h3 {

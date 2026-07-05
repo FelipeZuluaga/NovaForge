@@ -1,26 +1,27 @@
 import '../styles/Garantias.css';
+import { LuShieldCheck, LuPlugZap, LuHeadset, LuLock } from 'react-icons/lu';
 
 const Garantias = () => {
   const items = [
     {
-      icono: "🛡️",
-      titulo: "Código de Alta Calidad",
-      desc: "Aplicamos las mejores prácticas y estándares técnicos para entregar software robusto y fácil de mantener."
+      icono: <LuShieldCheck />,
+      titulo: "Calidad y Estabilidad",
+      desc: "Implementamos buenas prácticas de desarrollo y configuramos hardware óptimo para entregar sistemas estables, robustos y duraderos."
     },
     {
-      icono: "📈",
-      titulo: "Escalabilidad Garantizada",
-      desc: "Diseñamos soluciones preparadas para crecer junto a tu empresa, soportando mayores volúmenes de datos y usuarios."
+      icono: <LuPlugZap />,
+      titulo: "Soluciones de Extremo a Extremo",
+      desc: "Centralizamos tus necesidades digitales y físicas. Diseñamos tu marca, programamos tus sistemas y equipamos toda tu oficina en un solo lugar."
     },
     {
-      icono: "🤝",
-      titulo: "Soporte y Acompañamiento",
-      desc: "No solo entregamos código; somos tus aliados tecnológicos con soporte técnico post-entrega constante."
+      icono: <LuHeadset />,
+      titulo: "Soporte Integral Continuo",
+      desc: "Garantizamos el respaldo constante tanto en el software desarrollado como en el mantenimiento preventivo y correctivo de tus equipos informáticos."
     },
     {
-      icono: "🔒",
-      titulo: "Confidencialidad Total",
-      desc: "Tu propiedad intelectual y datos están protegidos bajo estrictos acuerdos de confidencialidad (NDA)."
+      icono: <LuLock />,
+      titulo: "Confidencialidad y Respaldo",
+      desc: "Tus datos comerciales, bases de datos y propiedad intelectual están protegidos bajo estrictos acuerdos de seguridad y confidencialidad."
     }
   ];
 
@@ -28,7 +29,7 @@ const Garantias = () => {
     <section id="garantias" className="garantias-section">
       <div className="garantias-header">
         <h2 className="section-title">Nuestra <span>Garantía</span></h2>
-        <p className="section-subtitle">Tu tranquilidad es nuestra prioridad en cada línea de código.</p>
+        <p className="section-subtitle">Tu tranquilidad operativa y el crecimiento de tu negocio son nuestra máxima prioridad.</p>
       </div>
 
       <div className="garantias-grid">

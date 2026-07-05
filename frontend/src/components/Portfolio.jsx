@@ -1,34 +1,38 @@
 import { useState } from 'react';
 import '../styles/Portfolio.css';
 
-// Importaciones de tus archivos locales
-import loginImg from '../assets/login.png';
-import panelImg from '../assets/panel_central.png';
-import videoSaaS from '../assets/video_SaaS.mp4'; // Importamos tu nuevo video
+// Importa los videos que vas a asignar a cada pilar
+import videoDesarrollo from '../assets/despues_novaforge.mp4'; 
+// Nota: Para pruebas puedes usar el mismo video corporativo en los tres, 
+// o clonar e importar videoSoporte.mp4 y videoBranding.mp4 cuando los tengas.
+import videoSoporte from '../assets/video_SaaS.mp4'; 
+import videoBranding from '../assets/video_SaaS.mp4'; 
 
 const Portfolio = () => {
-  const proyectos = [
+  const pilaresProyectos = [
     {
       id: 1,
-      titulo: "SaaS de Gestión Logística",
-      categoria: "Software a Medida",
-      descripcion: "Optimización de rutas en tiempo real y control de inventarios para flotas de transporte.",
-      tags: ["React", "Node.js", "MySQL"],
-      media: [
-        { tipo: 'img', url: loginImg },
-        { tipo: 'img', url: panelImg }
-      ]
+      titulo: "Software & Desarrollo Web",
+      categoria: "Pilar Operativo 01",
+      descripcion: "Diseño y despliegue de plataformas SaaS, sistemas POS de facturación y aplicativos en la nube con arquitecturas escalables y bases de datos optimizadas.",
+      tags: ["React / Node.js", "Sistemas POS", "MySQL & Cloud", "APIs"],
+      media: [{ tipo: 'video', url: videoDesarrollo }]
     },
     {
       id: 2,
-      titulo: "App Web y movil de E-commerce",
-      categoria: "Desarrollo Web y movil",
-      descripcion: "Experiencia de compra fluida con catálogo dinámico.",
-      tags: ["React Native", "Firebase"],
-      media: [
-        { tipo: 'video', url: videoSaaS }, // Usamos el video importado aquí
-        { tipo: 'img', url: panelImg }
-      ]
+      titulo: "Infraestructura & Soporte",
+      categoria: "Pilar Operativo 02",
+      descripcion: "Montaje de servidores locales (Linux/Ubuntu), configuración de redes estructuradas, mantenimiento preventivo de hardware y soporte técnico administrado 24/7.",
+      tags: ["Servidores Linux", "Redes POS", "Mantenimiento PC", "Soporte Remoto"],
+      media: [{ tipo: 'video', url: videoSoporte }]
+    },
+    {
+      id: 3,
+      titulo: "Branding & Identidad Visual",
+      categoria: "Pilar Operativo 03",
+      descripcion: "Creación de identidad corporativa, diseño de logotipos de alta fidelidad, marcas de agua personalizadas y layouts de interfaz (UI/UX) listos para desarrollo.",
+      tags: ["Diseño de Logos", "UI / UX", "Identidad Corporativa", "Formatos Word/Web"],
+      media: [{ tipo: 'video', url: videoBranding }]
     }
   ];
 
@@ -36,11 +40,11 @@ const Portfolio = () => {
     <section id="proyectos" className="portfolio-section">
       <div className="portfolio-header">
         <h2 className="section-title">Nuestros <span>Casos de Éxito</span></h2>
-        <p className="section-subtitle">Soluciones reales para retos tecnológicos complejos.</p>
+        <p className="section-subtitle">Soluciones reales divididas en nuestros tres frentes de ejecución tecnológica.</p>
       </div>
 
       <div className="portfolio-grid">
-        {proyectos.map((proy) => (
+        {pilaresProyectos.map((proy) => (
           <ProjectCard key={proy.id} proy={proy} />
         ))}
       </div>
@@ -49,25 +53,15 @@ const Portfolio = () => {
 };
 
 const ProjectCard = ({ proy }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const currentItem = proy.media[currentIndex];
-
-  const nextMedia = (e) => {
-    e.stopPropagation();
-    setCurrentIndex((prev) => (prev + 1) % proy.media.length);
-  };
-
-  const prevMedia = (e) => {
-    e.stopPropagation();
-    setCurrentIndex((prev) => (prev - 1 + proy.media.length) % proy.media.length);
-  };
+  // Como ahora cada pilar tiene un solo video fijo de demostración, 
+  // la lógica del carrusel se simplifica directamente al primer elemento.
+  const currentItem = proy.media[0];
 
   return (
     <div className="portfolio-card">
       <div className="portfolio-image">
         <div className="carousel-container">
           
-          {/* Renderizado dinámico según el tipo de archivo */}
           {currentItem.tipo === 'video' ? (
             <video 
               src={currentItem.url} 
@@ -81,18 +75,6 @@ const ProjectCard = ({ proy }) => {
             <img src={currentItem.url} alt={proy.titulo} className="carousel-img" />
           )}
           
-          {/* Botones de navegación del carrusel */}
-          {proy.media.length > 1 && (
-            <>
-              <button className="carousel-btn prev" onClick={prevMedia}>‹</button>
-              <button className="carousel-btn next" onClick={nextMedia}>›</button>
-              <div className="carousel-dots">
-                {proy.media.map((_, i) => (
-                  <span key={i} className={`dot ${currentIndex === i ? 'active' : ''}`}></span>
-                ))}
-              </div>
-            </>
-          )}
         </div>
 
         <div className="portfolio-overlay">

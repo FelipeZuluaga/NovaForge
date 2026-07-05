@@ -34,8 +34,6 @@ const Navbar = () => {
 
         <a href="/#garantias" onClick={closeMenu}>Garantías</a>
         
-        <a href="/#faq" onClick={closeMenu}>FAQ</a>
-        
         <a href="/#contacto" className="nav-cta" onClick={closeMenu}>Contacto</a>
       </div>
     </nav>
