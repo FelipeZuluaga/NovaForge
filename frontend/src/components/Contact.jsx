@@ -19,7 +19,7 @@ const Contact = () => {
         <section id="contacto" className="contact-section">
             <div className="contact-container">
                 <div className="contact-info">
-                    <h2>Más de <span>10 años</span> de experiencia</h2>
+                    <h2>Más de <span>3 años</span> de experiencia</h2>
                     <p className="contact-experience-text">
                         En NovaForge fusionamos trayectoria técnica y vanguardia digital. Somos especialistas en dar soporte, desarrollar software de alto rendimiento y estructurar la infraestructura tecnológica de empresas exigentes.
                     </p>

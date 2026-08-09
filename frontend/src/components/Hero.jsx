@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import '../styles/Hero.css';
 
 // Importamos las imágenes que funcionarán como fondos dinámicos
-import bgSoftware from '../assets/Software_Desarrollo_Web.png';
+import bgSoftware from '../assets/DesarrolloWebBranding/Software_Desarrollo_Web.png';
 import bgInfraestructura from '../assets/Infraestructura_Soporte.png';
 import bgInfraestructura2 from '../assets/Infraestructura_Soporte2.png';
-import bgBranding from '../assets/Branding_Identidad_Visual.png';
+import bgBranding from '../assets/DesarrolloWebBranding/Branding_Identidad_Visual.png';
 
 const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);

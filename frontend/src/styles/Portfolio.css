@@ -181,3 +181,73 @@
     width: 20px; /* Estilo de píldora para el activo */
     border-radius: 10px;
 }
+/* ==========================================================
+   NUEVOS ESTILOS PARA CASOS DE ÉXITO Y EXPERIENCIA DE CLIENTE
+   ========================================================== */
+
+.proy-header-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.proy-badge-metric {
+    background: rgba(14, 165, 233, 0.15);
+    color: var(--nova-blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.client-experience {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.client-quote {
+    font-size: 0.88rem;
+    color: #a0aec0;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.client-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.client-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-author-info strong {
+    color: var(--nova-white);
+    font-size: 0.85rem;
+}
+
+.client-author-info span {
+    color: #718096;
+    font-size: 0.75rem;
+}
+
+.client-logo {
+    max-height: 35px;
+    max-width: 90px;
+    object-fit: contain;
+    filter: brightness(0.9) grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.portfolio-card:hover .client-logo {
+    filter: brightness(1) grayscale(0%);
+}

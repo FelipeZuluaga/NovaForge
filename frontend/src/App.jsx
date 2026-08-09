@@ -14,6 +14,7 @@ const Home = () => (
   <>
     <Hero />
     <MissionVision />
+    <PortfolioPage />
     <Pricing />
     <Garantias />
     <Contact />

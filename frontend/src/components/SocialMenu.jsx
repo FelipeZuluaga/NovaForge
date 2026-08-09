@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { FaWhatsapp, FaTiktok, FaFacebook, FaShoppingCart, FaHeadset, FaPlus, FaTimes } from 'react-icons/fa';
+import { FaWhatsapp, FaTiktok, FaFacebook, FaShoppingCart, FaTimes } from 'react-icons/fa';
 import '../styles/SocialMenu.css';
 
-// Agregamos { isHidden } como argumento para recibirlo desde App.js
 const SocialMenu = ({ isHidden }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // Inicializamos en true para que siempre esté abierto por defecto
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -12,15 +12,13 @@ const SocialMenu = ({ isHidden }) => {
     { name: 'WhatsApp', icon: <FaWhatsapp />, url: 'https://wa.me/573132742361?text=Hola+NovaForge', color: '#25D366' },
     { name: 'TikTok', icon: <FaTiktok />, url: 'https://www.tiktok.com/@novaforge598?_r=1&_t=ZS-96n1vKDzsCj', color: '#000' },
     { name: 'Facebook', icon: <FaFacebook />, url: 'https://www.facebook.com/profile.php?id=61572142791983', color: '#4267B2' },
-    { name: 'Compra Equipos', icon: <FaShoppingCart />, url: 'https://www.ingenieriatecnologicamr.com/inicio/equipos-disponibles', color: '#f39c12' },
-    { name: 'Soporte Técnico', icon: <FaHeadset />, url: 'https://www.ingenieriatecnologicamr.com/inicio', color: '#3498db' },
+    { name: 'Compra Equipos', icon: <FaShoppingCart />, url: 'https://www.ingenieriatecnologicamr.com/mr-ingenier%C3%ADa-tecnologica/equipos-disponibles', color: '#f39c12' },
   ];
 
   return (
-    // Aquí añadimos la clase 'hidden' condicionalmente
     <div className={`social-menu-container ${isOpen ? 'open' : ''} ${isHidden ? 'hidden' : ''}`}>
       {/* Botón principal */}
-      <button className="main-float-btn" onClick={toggleMenu}>
+      <button className="main-float-btn" onClick={toggleMenu} aria-label="Toggle menú flotante">
         {isOpen ? <FaTimes /> : <FaPlus />}
       </button>
 

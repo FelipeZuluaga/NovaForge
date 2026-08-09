@@ -2,7 +2,7 @@ import '../styles/MissionVision.css';
 
 // Importación de las nuevas imágenes
 import imgMision from '../assets/nuestra_mision.png';
-import imgVision from '../assets/nuestra_vision.png';
+import imgVision from '../assets/vision.png';
 
 const MissionVision = () => {
     return (
@@ -11,8 +11,13 @@ const MissionVision = () => {
                 <div className="mv-grid">
                     {/* Tarjeta de Misión */}
                     <div className="mv-card">
-                        <div className="mv-icon-container">
-                            <img src={imgMision} alt="Misión NovaForge" className="mv-custom-icon" />
+                        {/* Contenedor de la foto de Misión */}
+                        <div className="mv-image-container">
+                            <img 
+                                src={imgMision} 
+                                alt="Equipo de NovaForge trabajando en Misión" 
+                                className="mv-photo" 
+                            />
                         </div>
                         <h3>Nuestra Misión</h3>
                         <p>
@@ -25,8 +30,13 @@ const MissionVision = () => {
 
                     {/* Tarjeta de Visión */}
                     <div className="mv-card">
-                        <div className="mv-icon-container">
-                            <img src={imgVision} alt="Visión NovaForge" className="mv-custom-icon" />
+                        {/* Contenedor de la foto de Visión */}
+                        <div className="mv-image-container">
+                            <img 
+                                src={imgVision} 
+                                alt="Equipo de NovaForge trabajando en Visión con código" 
+                                className="mv-photo" 
+                            />
                         </div>
                         <h3>Nuestra Visión</h3>
                         <p>

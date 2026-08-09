@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Pricing.css';
 
-// Importación de las imágenes para el carrusel de fondo
-import img1 from '../assets/img1.png';
+// Importación de las imágen7es para el carrusel de fondo
+import img1 from '../assets/SoftwareMedida/img1.png';
 import img2 from '../assets/img2.png';
 import img3 from '../assets/img3.png';
-import img4 from '../assets/img4.png';
-import img5 from '../assets/img5.png';
+import img4 from '../assets/InfraestructuraServidores/img4.png';
+import img5 from '../assets/InfraestructuraServidores/img5.png';
 
 const Pricing = () => {
     const navigate = useNavigate();
@@ -104,13 +104,13 @@ const Pricing = () => {
                                     <li key={i}>{feature}</li>
                                 ))}
                             </ul>
-
+                            {/* 
                             <button
                                 className="btn-text-link"
                                 onClick={() => navigate('/portafolio')}
                             >
                                 Ver portafolio de proyectos
-                            </button>
+                            </button>*/}
 
                             <a
                                 href={plan.waLink}
