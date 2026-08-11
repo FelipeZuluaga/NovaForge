@@ -1,23 +1,23 @@
-import { useState } from 'react'; // 1. Importamos useState
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
-import MissionVision from './components/mision_vision';
+import MisionVision from './components/mision_vision'; 
+import Portfolio from './components/Portfolio'; 
 import Pricing from './components/Pricing';
+import Contact from './components/Contact';  
 import Garantias from './components/Garantias';
-import Contact from './components/Contact';
-import PortfolioPage from './components/Portfolio';
 import SocialMenu from './components/SocialMenu'; 
 
+// Cambiamos <mision_vision /> por <MisionVision />
 const Home = () => (
   <>
     <Hero />
-    <MissionVision />
-    <PortfolioPage />
+    <MisionVision />
+    <Portfolio />
     <Pricing />
-    <Garantias />
     <Contact />
+    <Garantias />
   </>
 );
 
@@ -29,11 +29,10 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/portafolio" element={<PortfolioPage />} />
           </Routes>
         </main>
 
-        <SocialMenu /> {/* ESTO DEBE ESTAR AQUÍ: Fuera de Navbar, fuera de Routes */}
+        <SocialMenu />
         <Footer />
       </div>
     </Router>

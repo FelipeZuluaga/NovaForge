@@ -12,7 +12,6 @@ const SocialMenu = ({ isHidden }) => {
     { name: 'WhatsApp', icon: <FaWhatsapp />, url: 'https://wa.me/573132742361?text=Hola+NovaForge', color: '#25D366' },
     { name: 'TikTok', icon: <FaTiktok />, url: 'https://www.tiktok.com/@novaforge598?_r=1&_t=ZS-96n1vKDzsCj', color: '#000' },
     { name: 'Facebook', icon: <FaFacebook />, url: 'https://www.facebook.com/profile.php?id=61572142791983', color: '#4267B2' },
-    { name: 'Compra Equipos', icon: <FaShoppingCart />, url: 'https://www.ingenieriatecnologicamr.com/mr-ingenier%C3%ADa-tecnologica/equipos-disponibles', color: '#f39c12' },
   ];
 
   return (

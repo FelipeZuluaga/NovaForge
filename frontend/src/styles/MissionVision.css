@@ -7,12 +7,18 @@
 }
 
 .mv-section {
-    padding: 80px 10%;
+    /* 1. Reduce el padding vertical de 80px a 40px o 50px */
+    padding: 40px 10%;
     background-color: var(--nova-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Opcional: Centra verticalmente en la pantalla */
+    
+    /* ❌ ELIMINA O COMENTA ESTA LÍNEA */
+    /* min-height: 100vh; */ 
+    
+    /* ✅ EN SU LUGAR USA ESTO (para evitar que fuerce la pantalla completa): */
+    min-height: auto;
 }
 
 .mv-container {
@@ -67,18 +73,15 @@
 
 .mv-image-container {
     width: 100%;
-    /* --- IMPORTANTE: Define una altura fija para uniformidad --- */
-    height: 280px; /* Ajusta esta altura según prefieras (ej. 250px a 350px) */
-    
-    margin-bottom: 25px;
+    /* Reduce la altura fija de la imagen de 280px a 200px - 220px */
+    height: 220px; 
+    margin-bottom: 20px;
     overflow: hidden;
-    border-radius: 16px; /* Bordes redondeados de la foto */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde sutil opcional */
-    
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0d111a; /* Fondo oscuro por si la imagen tarda en cargar */
+    background-color: #0d111a;
 }
 
 .mv-photo {

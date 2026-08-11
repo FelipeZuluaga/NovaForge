@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../styles/Pricing.css';
 
-// Importación de las imágen7es para el carrusel de fondo
-import img1 from '../assets/SoftwareMedida/img1.png';
-import img2 from '../assets/img2.png';
-import img3 from '../assets/img3.png';
-import img4 from '../assets/InfraestructuraServidores/img4.png';
-import img5 from '../assets/InfraestructuraServidores/img5.png';
+// Importación de imágenes para el carrusel de fondo
+import img1 from '../assets/Software_Desarrollo_Web.png';
+import img2 from '../assets/Software_Desarrollo_Web2.png';
 
 const Pricing = () => {
-    const navigate = useNavigate();
     const [currentBg, setCurrentBg] = useState(0);
-    const backgrounds = [img1, img2, img3, img4, img5];
+    const backgrounds = [img1, img2];
 
-    // Lógica para el carrusel de fondo automático
+    // Carrusel de fondo automático
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentBg((prev) => (prev + 1) % backgrounds.length);
@@ -22,81 +17,73 @@ const Pricing = () => {
         return () => clearInterval(timer);
     }, [backgrounds.length]);
 
-    // Función para desplazamiento suave al contacto
-    const scrollToContact = () => {
-        const contactSection = document.getElementById('contacto');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     const planes = [
         {
-            nombre: "Sistemas & Facturación",
-            desc: "La solución definitiva para automatizar las ventas, inventarios y el control de tu comercio.",
-            features: [
-                "Software de Facturación (POS e Interna)",
-                "Control de Inventarios en tiempo real",
-                "Configuración de terminales y ticketeras",
-                "Reportes automatizados de ventas",
-                "Soporte técnico y mantenimiento preventivo"
-            ],
+            id: 1,
+            nombre: "SaaS Inventario & Ventas",
+            badge: "Software Operativo",
+            desc: "La solución completa para controlar tu stock, automatizar facturación y calcular tus ganancias netas en tiempo real.",
             destacado: false,
-            waLink: "https://wa.me/573132742361?text=Hola,%20me%20interesa%20el%20plan%20de%20Sistemas%20y%20Facturación"
+            features: [
+                "Control de inventario en tiempo real multi-bodega",
+                "Módulo de ventas y facturación POS rápida",
+                "Cálculo automático de margen de ganancia por producto",
+                "Alertas inteligentes de bajo stock",
+                "Soporte técnico y actualizaciones continuas"
+            ],
+            waLink: "https://wa.me/573132742361?text=Hola,%20me%20interesa%20el%20plan%20SaaS%20Inventario%20%26%20Ventas"
         },
         {
-            nombre: "Desarrollo & Medida",
-            desc: "Software único, páginas web de alto impacto y aplicaciones móviles escalables para tu marca.",
+            id: 2,
+            nombre: "Aceleradora de Ventas Digitales",
+            badge: "Growth & Captación B2B/B2C",
+            desc: "Estrategia integral para multiplicar tus prospectos cualificados mediante embudos de conversión y pauta publicitaria.",
+            destacado: true, // Destacado visualmente
             features: [
-                "Desarrollo Web Profesional y Corporativo",
-                "Aplicaciones Móviles nativas (iOS / Android)",
-                "Software 100% personalizado a tu operación",
-                "Diseño de interfaz exclusivo (UX/UI)",
-                "Garantía de escalabilidad e infraestructura"
+                "Diseño de Landing Page de alta conversión",
+                "Gestión y optimización de campañas en Meta Ads",
+                "Integración directa con WhatsApp / CRM",
+                "Estrategia de retargeting para prospectos",
+                "Reportes mensuales de rendimiento y ROAS"
             ],
-            destacado: true,
-            waLink: "https://wa.me/573132742361?text=Hola,%20me%20interesa%20el%20plan%20de%20Desarrollo%20a%20la%20medida"
-        },
-        {
-            nombre: "Equipamiento & Branding",
-            desc: "Creamos la identidad de tu empresa y te suministramos todo el hardware necesario.",
-            features: [
-                "Venta de computadores, tablets y pantallas",
-                "Diseño de logos y manuales de marca",
-                "Creación de letreros y tarjetas profesionales",
-                "Optimización y alistamiento de máquinas",
-                "Consultoría de infraestructura tecnológica"
-            ],
-            destacado: false,
-            waLink: "https://wa.me/573228556369?text=Hola,%20me%20interesa%20el%20plan%20de%20Equipamiento%20y%20Branding"
+            waLink: "https://wa.me/573132742361?text=Hola,%20me%20interesa%20el%20plan%20Aceleradora%20de%20Ventas"
         }
     ];
+
     return (
-        <section id="planes" className="pricing-section">
-            {/* Fondo Dinámico con Carrusel */}
+        <section className="pricing-section">
+            {/* Fondo dinámico con imágenes suaves */}
             <div className="pricing-bg-wrapper">
-                {backgrounds.map((img, index) => (
+                {backgrounds.map((bg, idx) => (
                     <div
-                        key={index}
-                        className={`pricing-bg-slide ${currentBg === index ? 'active' : ''}`}
-                        style={{ backgroundImage: `url(${img})` }}
+                        key={idx}
+                        className={`pricing-bg-slide ${idx === currentBg ? 'active' : ''}`}
+                        style={{ backgroundImage: `url(${bg})` }}
                     />
                 ))}
-                <div className="pricing-overlay"></div>
             </div>
+            <div className="pricing-overlay"></div>
 
-            {/* Contenido de la sección */}
-            <div className="pricing-content">
+            {/* Contenido principal */}
+            <div className="pricing-container">
                 <div className="pricing-header">
-                    <h2 className="section-title">Nuestros Planes</h2>
-                    <p className="section-subtitle">Inversión tecnológica diseñada para escalar tu negocio.</p>
+                    <h2>Planes y <span>Soluciones</span></h2>
+                    <p>Elige la solución que tu empresa necesita para automatizar su operación o acelerar sus ventas.</p>
                 </div>
 
                 <div className="pricing-grid">
-                    {planes.map((plan, index) => (
-                        <div key={index} className={`price-card ${plan.destacado ? 'featured' : ''}`}>
-                            {plan.destacado && <span className="badge">Recomendado</span>}
-                            <h3>{plan.nombre}</h3>
+                    {planes.map((plan) => (
+                        <div
+                            key={plan.id}
+                            className={`price-card ${plan.destacado ? 'popular' : ''}`}
+                        >
+                            {plan.destacado && <span className="badge-featured">Más Solicitado</span>}
+                            
+                            <span className="price-badge-category">
+                                {plan.badge}
+                            </span>
+                            
+                            <h3 className="price-title">{plan.nombre}</h3>
                             <p className="price-desc">{plan.desc}</p>
 
                             <ul className="price-features">
@@ -104,20 +91,12 @@ const Pricing = () => {
                                     <li key={i}>{feature}</li>
                                 ))}
                             </ul>
-                            {/* 
-                            <button
-                                className="btn-text-link"
-                                onClick={() => navigate('/portafolio')}
-                            >
-                                Ver portafolio de proyectos
-                            </button>*/}
 
                             <a
                                 href={plan.waLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={plan.destacado ? "btn-primary-card" : "btn-outline"}
-                                style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}
                             >
                                 Solicitar Asesoría
                             </a>
