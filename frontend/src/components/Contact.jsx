@@ -1,99 +1,76 @@
-import { useState } from 'react';
 import '../styles/Contact.css';
+import { FaWhatsapp, FaReact, FaNodeJs, FaGoogle, FaMeta } from 'react-icons/fa6';
+import { SiPostgresql, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import servicioClienteImg from '../assets/servicio_cliente.png';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        nombre: '',
-        telefono: '', // Cambiado de correo a telefono
-        empresa: '',
-        mensaje: '',
-        interes: ''
-    });
+    const whatsappLink = "https://wa.me/573132742361?text=Hola%20NovaForge,%20quiero%20agendar%20una%20asesor%C3%ADa%20para%20mi%20negocio.";
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('http://localhost:3001/api/contacto', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-            if (response.ok) {
-                alert("¡Mensaje enviado con éxito! Nos contactaremos pronto.");
-                // Limpiamos el formulario con los campos correctos
-                setFormData({ nombre: '', telefono: '', empresa: '', mensaje: '', interes: '' });
-            }
-        } catch (error) {
-            console.error("Error al enviar:", error);
-            alert("Hubo un error al conectar con el servidor.");
-        }
-    };
+    // Stack tecnológico enfocado en Software SaaS y Growth Marketing
+    const tecnologias = [
+        { nombre: "React", icono: <FaReact /> },
+        { nombre: "Node.js", icono: <FaNodeJs /> },
+        { nombre: "TypeScript", icono: <SiTypescript /> },
+        { nombre: "PostgreSQL", icono: <SiPostgresql /> },
+        { nombre: "Tailwind CSS", icono: <SiTailwindcss /> },
+        { nombre: "Meta Ads", icono: <FaMeta /> },
+        { nombre: "Google Ads", icono: <FaGoogle /> }
+    ];
 
     return (
         <section id="contacto" className="contact-section">
             <div className="contact-container">
+                {/* Lado Izquierdo: Mensaje y Tecnologías */}
                 <div className="contact-info">
-                    <h2>¿Listo para <span>escalar</span>?</h2>
-                    <p>Déjanos tus datos y un consultor técnico de NovaForge se pondrá en contacto contigo en menos de 24 horas.</p>
+                    <h2 className="contact-title">
+                        Impulsa tu negocio <span>hoy mismo</span>
+                    </h2>
+                    
+                    <p className="contact-experience-text">
+                        Automatiza tus inventarios y escala tu facturación digital con el respaldo de nuestro stack tecnológico y asesoría estratégica personalizada.
+                    </p>
+
+                    <div className="tech-brands-container">
+                        <h3>Tecnologías & Infraestructura</h3>
+                        <div className="tech-badge-grid">
+                            {tecnologias.map((tech, index) => (
+                                <div key={index} className="tech-badge">
+                                    <span className="tech-icon">{tech.icono}</span>
+                                    <span>{tech.nombre}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                <form className="contact-form" onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <select
-                            name="interes"
-                            onChange={handleChange}
-                            className="form-select"
-                            value={formData.interes}
-                            required
+                {/* Lado Derecho: Tarjeta de Atención Comercial / CTA WhatsApp */}
+                <div className="contact-cta-box">
+                    <div className="callcenter-image-wrapper">
+                        <img 
+                            src={servicioClienteImg} 
+                            alt="Atención al cliente NovaForge" 
+                            className="callcenter-img" 
+                        />
+                        <div className="support-overlay">
+                            <span className="status-dot">●</span> Atención Comercial Activa
+                        </div>
+                    </div>
+
+                    <div className="cta-action-content">
+                        <h3>¿Prefieres una asesoría directa?</h3>
+                        <p>
+                            Escríbenos para agendar una demostración en vivo de nuestro SaaS o analizar la estrategia de tu próximo sitio web.
+                        </p>
+                        <a
+                            href={whatsappLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-whatsapp-cta"
                         >
-                            <option value="" disabled hidden>¿En qué estás interesado?</option>
-                            <option value="inventarios" style={{ background: '#0a0f18' }}>Software inventarios rutas</option>
-                            <option value="web-movil" style={{ background: '#0a0f18' }}>Desarrollo web y movil</option>
-                            <option value="medida" style={{ background: '#0a0f18' }}>Software a la medida</option>
-                            <option value="consultoria" style={{ background: '#0a0f18' }}>Consultoria Tecnologica</option>
-                            <option value="cloud" style={{ background: '#0a0f18' }}>Servidores & cloud</option>
-                            <option value="marketing" style={{ background: '#0a0f18' }}>Marketing Digital</option>
-                        </select>
+                            <FaWhatsapp className="ws-icon" /> Agendar por WhatsApp
+                        </a>
                     </div>
-
-                    <div className="form-group">
-                        <input 
-                            type="text" 
-                            name="nombre" 
-                            placeholder="Nombre completo" 
-                            value={formData.nombre} 
-                            onChange={handleChange} 
-                            required 
-                        />
-                    </div>
-
-                    {/* Nuevo campo de Teléfono */}
-                    <div className="form-group">
-                        <input 
-                            type="tel" 
-                            name="telefono" 
-                            placeholder="Teléfono de comunicación" 
-                            value={formData.telefono} 
-                            onChange={handleChange} 
-                            required 
-                        />
-                    </div>
-                    <div className="form-group">
-                        <textarea 
-                            name="mensaje" 
-                            placeholder="¿En qué podemos ayudarte?" 
-                            value={formData.mensaje} 
-                            onChange={handleChange} 
-                            required
-                        ></textarea>
-                    </div>
-                    
-                    <button type="submit" className="btn-submit">Enviar Solicitud</button>
-                </form>
+                </div>
             </div>
         </section>
     );

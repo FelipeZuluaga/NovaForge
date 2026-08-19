@@ -1,173 +1,247 @@
+/* --- Contenedor Principal --- */
 .pricing-section {
-    background-color: var(--nova-bg);
-    padding: 0 10% 100px 10%; /* Quitamos el padding superior */
+    position: relative;
+    padding: 90px 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--nova-bg, #0b0f17);
+    overflow: hidden;
 }
 
+/* --- Capas de Fondo / Carrusel --- */
+.pricing-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.pricing-bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.pricing-bg-slide.active {
+    opacity: 0.25;
+}
+
+.pricing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(11, 15, 23, 0.7) 0%, rgba(11, 15, 23, 0.95) 100%);
+    z-index: 1;
+}
+
+.pricing-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1150px;
+}
+
+/* --- Encabezado --- */
 .pricing-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
-.section-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--nova-white);
-    margin-bottom: 10px;
+.pricing-header h2 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
-.section-subtitle {
-    color: var(--nova-text-muted);
-    font-size: 1.1rem;
+.pricing-header h2 span {
+    color: var(--nova-blue, #0ea5e9);
 }
 
+.pricing-header p {
+    color: #94a3b8;
+    font-size: 1rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* --- Grid de Tarjetas --- */
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    align-items: stretch; /* Garantiza misma altura para todas las tarjetas */
 }
 
+/* --- Tarjeta Individual --- */
 .price-card {
-    background: var(--nova-card-bg); /* Fondo oscuro para la tarjeta */
-    border: 1px solid #2d3748;
-    border-radius: 24px;
-    padding: 45px 35px;
+    position: relative;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 36px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
-    transition: all 0.4s ease;
-    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .price-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--nova-blue);
-    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4);
+    border-color: rgba(14, 165, 233, 0.4);
 }
 
-.price-card.featured {
-    border: 2px solid var(--nova-blue);
-    background: linear-gradient(145deg, #161e2d 0%, #0a0f18 100%);
-    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.1);
+/* Plan Destacado (Glow) */
+.price-card.popular {
+    border: 2px solid var(--nova-blue, #0ea5e9);
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.2);
 }
 
-.badge {
+.badge-featured {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--nova-blue);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 800;
-    padding: 5px 12px;
-    border-radius: 50px;
+    top: -14px;
+    right: 28px;
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
 }
 
-.price-card h3 {
-    font-size: 1.7rem;
-    color: var(--nova-white);
-    margin-bottom: 15px;
+.price-badge-category {
+    font-size: 0.8rem;
+    color: var(--nova-blue, #38bdf8);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.price-title {
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .price-desc {
-    font-size: 0.95rem;
-    color: var(--nova-text-muted);
-    margin-bottom: 30px;
-    min-height: 45px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 28px;
+    min-height: 54px; /* Mantiene consistente la altura de las descripciones */
 }
 
+/* Lista de Beneficios */
 .price-features {
     list-style: none;
     padding: 0;
-    margin-bottom: 40px;
-    flex-grow: 1;
+    margin: 0 0 32px 0;
+    flex-grow: 1; /* Ocupa el espacio intermedio */
 }
 
 .price-features li {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     color: #cbd5e1;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.4;
 }
 
-/* Checkmark con el azul del logo */
 .price-features li::before {
     content: "✓";
-    color: var(--nova-blue);
-    font-weight: bold;
+    color: var(--nova-blue, #38bdf8);
+    font-weight: 800;
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+/* Botones alineados al fondo */
+.btn-primary-card, .btn-outline {
+    margin-top: auto; /* Empuja el botón exactamente al final de la tarjeta */
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .btn-primary-card {
-    background: var(--nova-blue);
-    color: white;
-    padding: 16px;
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: #ffffff;
     border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
 }
 
 .btn-primary-card:hover {
-    background: var(--nova-accent);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
 }
 
 .btn-outline {
     background: transparent;
-    border: 1px solid #2d3748;
-    color: var(--nova-white);
-    padding: 16px;
-    border-radius: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }
 
 .btn-outline:hover {
-    border-color: var(--nova-blue);
-    background: rgba(0, 86, 179, 0.1);
+    border-color: var(--nova-blue, #0ea5e9);
+    color: var(--nova-blue, #38bdf8);
+    background: rgba(14, 165, 233, 0.05);
 }
-/* Botón de proyectos dentro de la tarjeta de precios */
-.btn-text-link {
-    background: transparent;
-    border: none;
-    color: var(--nova-text-muted);
-    font-size: 0.9rem;
+/* --- Estilos adicionales para los precios en las tarjetas --- */
+.price-tag-container {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.price-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.price-period {
+    font-size: 0.88rem;
+    color: #94a3b8;
+}
+
+.price-annual-discount {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--nova-blue, #38bdf8);
     font-weight: 600;
-    margin-bottom: 15px; /* Espacio antes del botón de asesoría */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-decoration: underline rgba(255, 255, 255, 0.1);
-}
-
-.btn-text-link:hover {
-    color: var(--nova-blue);
-    text-decoration-color: var(--nova-blue);
-    transform: translateX(3px); /* Pequeño desplazamiento a la derecha */
-}
-
-/* Icono sutil antes del texto */
-.btn-text-link::before {
-    content: "↗";
-    font-size: 1rem;
-}
-
-/* Asegurar que los botones estén uno sobre otro correctamente */
-.price-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.price-features {
-    flex-grow: 1; /* Esto empuja los botones hacia el final de la tarjeta */
 }

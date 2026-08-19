@@ -1,61 +1,102 @@
+/* --- Sección Principal --- */
 .garantias-section {
-    background-color: var(--nova-bg);
-    padding: 100px 10%;
+    background-color: var(--nova-bg, #0b0f17);
+    padding: 90px 8%;
     text-align: center;
+    position: relative;
 }
 
-.garantias-header {
-    margin-bottom: 60px;
-}
-
-.garantias-header h2 span {
-    color: var(--nova-blue);
-}
-
-.garantias-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+.garantias-container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* --- Encabezado --- */
+.garantias-header {
+    margin-bottom: 55px;
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.section-title span {
+    color: var(--nova-blue, #0ea5e9);
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    font-size: 1rem;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* --- Grid de Garantías --- */
+.garantias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    align-items: stretch; /* Garantiza la misma altura en todas las tarjetas */
+}
+
+/* --- Tarjeta Individual --- */
 .garantia-card {
-    background: var(--nova-card-bg);
-    padding: 40px 30px;
-    border-radius: 24px;
-    border: 1px solid #2d3748;
-    transition: all 0.3s ease;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 40px 28px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.35s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .garantia-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--nova-blue);
-    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.1);
+    transform: translateY(-8px);
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.35), 0 0 20px rgba(14, 165, 233, 0.15);
 }
 
+/* --- Estilo para los Íconos SVG --- */
 .garantia-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    border-radius: 20px;
+    margin-bottom: 24px;
+    color: var(--nova-blue, #38bdf8);
+    font-size: 2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.garantia-card h3 {
-    color: var(--nova-white);
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+.garantia-card:hover .garantia-icon {
+    transform: scale(1.08);
+    background: rgba(14, 165, 233, 0.2);
+    color: #38bdf8;
 }
 
-.garantia-card p {
-    color: var(--nova-text-muted);
-    font-size: 1rem;
+/* --- Títulos y Descripciones --- */
+.garantia-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+    line-height: 1.3;
+}
+
+.garantia-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
     line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .garantias-section {
-        padding: 80px 5%;
-    }
+    margin: 0;
 }

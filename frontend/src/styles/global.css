@@ -1,22 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
+/* src/styles/global.css */
 :root {
-  --nova-blue: #0056b3;        /* El azul de tu logo */
-  --nova-bg: #0a0f18;          /* Azul casi negro (Fondo principal) */
-  --nova-card-bg: #161e2d;     /* Azul oscuro para tarjetas */
+  /* Colores base fijos */
+  --nova-blue-primary: #0056b3;  /* El azul brillante de tu logo */
+  --nova-dark-navy: #0a1120;     /* El azul marino profundo */
+  --nova-pure-black: #05070c;    /* El negro corporativo */
   --nova-white: #ffffff;
   --nova-text-muted: #94a3b8;
-  --nova-accent: #3b82f6;      /* Azul vibrante para detalles */
+  --nova-card-bg: rgba(22, 30, 45, 0.4);
+
+  /* VARIABLES DINÁMICAS (Cambiarán con el selector) */
+  --nova-bg: var(--nova-pure-black); /* Fondo por defecto (Negro) */
+  --nova-blue: var(--nova-blue-primary);
 }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--nova-bg); /* Toda la página será oscura y elegante */
-  color: var(--nova-white);
-  -webkit-font-smoothing: antialiased;
+/* Clases de estado que inyectaremos dinámicamente en el body o contenedor principal */
+body.theme-black {
+  --nova-bg: var(--nova-pure-black);
+  --nova-card-bg: rgba(22, 30, 45, 0.4);
 }
 
-section {
-  padding: 100px 10%;
+body.theme-navy {
+  --nova-bg: var(--nova-dark-navy);
+  --nova-card-bg: rgba(15, 23, 42, 0.6);
+}
+
+body.theme-blue {
+  --nova-bg: var(--nova-blue-primary);
+  --nova-card-bg: rgba(255, 255, 255, 0.1); /* Ajuste de opacidad para fondo claro */
+}
+
+/* Asegúrate de que todos tus componentes usen var(--nova-bg) en su fondo */
+body, section {
+  background-color: var(--nova-bg);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
 }

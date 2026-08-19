@@ -1,0 +1,65 @@
+.social-menu-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  /* Aumentamos el z-index para asegurar que esté sobre todo */
+ z-index: 99999 !important; /* !important fuerza la prioridad */
+}
+
+.main-float-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--nova-blue);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 15px;
+  margin-bottom: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.social-menu-container.open .menu-items {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-item {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--item-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.menu-item:hover {
+  transform: scale(1.1);
+}
+/* Cuando el nav-hamburger esté abierto, ocultamos el SocialMenu globalmente */
+.nav-hamburger.open ~ .social-menu-container {
+    display: none !important;
+}
+/* Y añade esta clase simple y potente: */
+.social-menu-container.hidden {
+    display: none !important;
+}

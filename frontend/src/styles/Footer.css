@@ -1,25 +1,22 @@
+/* --- Estilos Generales del Footer --- */
 .footer {
-    background-color: var(--nova-bg);
-    padding: 80px 10% 30px 10%;
-    border-top: 1px solid #1e293b;
-    color: var(--nova-white);
+    background-color: var(--nova-bg, #0b0f17);
+    padding: 80px 8% 30px 8%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    position: relative;
 }
 
 .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: 1.4fr 0.8fr 1.2fr 1fr;
+    gap: 40px;
     margin-bottom: 50px;
 }
 
-.footer-brand p {
-    color: var(--nova-text-muted);
-    font-size: 0.95rem;
-    margin-top: 20px;
-    max-width: 350px;
-    line-height: 1.6;
-}
-
+/* --- Bloque de Marca --- */
 .footer-logo-wrap {
     display: flex;
     align-items: center;
@@ -27,65 +24,145 @@
 }
 
 .footer-logo {
-    height: 40px;
+    height: 38px;
     width: auto;
-    filter: brightness(1.2); /* Para que resalte en el fondo oscuro */
+    filter: brightness(1.1);
 }
 
 .footer-name {
     font-size: 1.5rem;
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
 }
 
-.footer h4 {
-    color: var(--nova-blue); /* Color de tu compañía */
-    margin-bottom: 20px;
+.footer-brand-desc {
+    color: #94a3b8;
+    font-size: 0.92rem;
+    margin-top: 18px;
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+/* --- Encabezados Generales --- */
+.footer-links h4,
+.footer-services h4,
+.footer-contact h4 {
+    color: #ffffff;
     font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: 0.3px;
 }
 
-.footer ul {
+/* --- Navegación --- */
+.footer-links ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.footer ul li {
+.footer-links li {
     margin-bottom: 12px;
 }
 
-.footer ul li a {
+.footer-links a {
+    color: #94a3b8;
     text-decoration: none;
-    color: var(--nova-text-muted);
-    transition: color 0.3s;
+    font-size: 0.92rem;
+    transition: all 0.25s ease;
 }
 
-.footer ul li a:hover {
-    color: var(--nova-white);
+.footer-links a:hover {
+    color: var(--nova-blue, #38bdf8);
+    padding-left: 4px;
 }
 
-.footer-contact p {
-    color: var(--nova-text-muted);
-    margin-bottom: 10px;
+/* --- Soluciones / Servicios --- */
+.footer-services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
+.footer-services li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    color: #94a3b8;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.service-icon {
+    color: var(--nova-blue, #38bdf8);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.footer-services li:hover {
+    color: #ffffff;
+}
+
+/* --- Bloque de Contacto --- */
+.contact-item-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.contact-icon {
+    color: var(--nova-blue, #38bdf8);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.footer-contact p, 
+.footer-contact a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.92rem;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #ffffff;
+}
+
+/* --- Parte Inferior / Copyright --- */
 .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
     padding-top: 30px;
-    border-top: 1px solid #1e293b;
-    color: #475569;
-    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
+.footer-bottom p {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* --- Adaptabilidad Responsiva --- */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
     .footer-container {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 35px;
     }
-    .footer-brand p {
-        margin: 20px auto;
-    }
-    .footer-logo-wrap {
-        justify-content: center;
+
+    .footer {
+        padding-top: 60px;
     }
 }

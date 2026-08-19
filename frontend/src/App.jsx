@@ -1,52 +1,38 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-// Importamos los componentes de las secciones
 import Hero from './components/Hero';
-import MissionVision from './components/mision_vision';
+import MisionVision from './components/mision_vision'; 
+import Portfolio from './components/Portfolio'; 
 import Pricing from './components/Pricing';
+import Contact from './components/Contact';  
 import Garantias from './components/Garantias';
-import FAQ from './components/FAQ';
-import Contact from './components/Contact';
+import SocialMenu from './components/SocialMenu'; 
 
-// Importamos la nueva página y el botón
-import PortfolioPage from './components/Portfolio';
-import WhatsAppButton from './components/WhatsAppButton'; 
-
-// Componente que agrupa la Landing Page principal
+// Cambiamos <mision_vision /> por <MisionVision />
 const Home = () => (
   <>
     <Hero />
-    <MissionVision />
+    <MisionVision />
+    <Portfolio />
     <Pricing />
-    <Garantias />
-    <FAQ />
     <Contact />
+    <Garantias />
   </>
 );
 
+// App.js
 function App() {
   return (
     <Router>
       <div className="app-wrapper">
-        <Navbar />
-        
         <main>
           <Routes>
-            {/* Ruta para la página principal (Landing) */}
             <Route path="/" element={<Home />} />
-            
-            {/* Ruta para la página independiente de Portafolio */}
-            <Route path="/portafolio" element={<PortfolioPage />} />
           </Routes>
         </main>
 
-        {/* Colocamos el botón aquí para que sea global. 
-            Estará presente tanto en "/" como en "/portafolio" 
-        */}
-        <WhatsAppButton />
-
+        <SocialMenu />
         <Footer />
       </div>
     </Router>
