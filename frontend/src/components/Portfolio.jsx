@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../styles/Portfolio.css';
 
 // 1. Corrección de nombres de variables de video (sin puntos ni caracteres inválidos)
-import videoSaaS from '../assets/Video_SaaS.mp4';
+import videoSaaS from '../assets/SaaS.mp4';
 import videoLandingPage from '../assets/VideoLoganPageCampaña.mp4';
 
 // Opcional: Logos o imágenes para el poster de cada video

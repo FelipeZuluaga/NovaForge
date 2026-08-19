@@ -214,3 +214,34 @@
     color: var(--nova-blue, #38bdf8);
     background: rgba(14, 165, 233, 0.05);
 }
+/* --- Estilos adicionales para los precios en las tarjetas --- */
+.price-tag-container {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.price-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.price-period {
+    font-size: 0.88rem;
+    color: #94a3b8;
+}
+
+.price-annual-discount {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--nova-blue, #38bdf8);
+    font-weight: 600;
+}
