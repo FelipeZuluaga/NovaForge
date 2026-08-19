@@ -1,6 +1,7 @@
 import '../styles/Footer.css';
 import logo from '../assets/logo.png';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLaptop, FaGlobe, FaDesktop, FaPalette } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaChartLine, FaRocket } from 'react-icons/fa';
+import { LuBox } from 'react-icons/lu';
 
 const Footer = () => {
     const year = new Date().getFullYear();
@@ -15,7 +16,9 @@ const Footer = () => {
                         <img src={logo} alt="NovaForge Logo" className="footer-logo" />
                         <span className="footer-name">NovaForge</span>
                     </div>
-                    <p>Soluciones integrales en tecnología: desarrollo de software a medida, sistemas POS de facturación, identidad corporativa y suministro de hardware empresarial.</p>
+                    <p className="footer-brand-desc">
+                        Plataforma SaaS de control operativo y agencia de crecimiento digital. Impulsamos la rentabilidad de las empresas automatizando inventarios y escalando sus ventas en línea.
+                    </p>
                 </div>
 
                 {/* Bloque de Navegación */}
@@ -23,21 +26,30 @@ const Footer = () => {
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#mision-vision">Misión y Visión</a></li>
+                        <li><a href="#mision-vision">Misión & Visión</a></li>
                         <li><a href="#planes">Nuestros Planes</a></li>
-                        <li><a href="#garantias">Garantía y Confianza</a></li>
-                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#casos-exito">Casos de Éxito</a></li>
+                        <li><a href="#garantias">Garantías</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
 
-                {/* Bloque de Soluciones con iconos */}
-                <div className="footer-links">
+                {/* Bloque de Soluciones (Actualizado al nuevo enfoque) */}
+                <div className="footer-services">
                     <h4>Soluciones</h4>
-                    <ul className="footer-services">
-                        <li><FaLaptop /> <span>Software POS & Rutas</span></li>
-                        <li><FaGlobe /> <span>Páginas Web y Apps</span></li>
-                        <li><FaDesktop /> <span>Computadores y Servidores</span></li>
-                        <li><FaPalette /> <span>Diseño de Marca y Logos</span></li>
+                    <ul>
+                        <li>
+                            <LuBox className="service-icon" /> 
+                            <span>SaaS Inventarios & POS</span>
+                        </li>
+                        <li>
+                            <FaRocket className="service-icon" /> 
+                            <span>Landing Pages de Alta Conversión</span>
+                        </li>
+                        <li>
+                            <FaChartLine className="service-icon" /> 
+                            <span>Gestión de Meta & Google Ads</span>
+                        </li>
                     </ul>
                 </div>
 
@@ -50,7 +62,7 @@ const Footer = () => {
                     </div>
                     <div className="contact-item-wrap">
                         <FaPhone className="contact-icon" />
-                        <a href="tel:+573132742361">313 274 2361</a>
+                        <a href="tel:+573132742361">+57 313 274 2361</a>
                     </div>
                     <div className="contact-item-wrap">
                         <FaMapMarkerAlt className="contact-icon" />

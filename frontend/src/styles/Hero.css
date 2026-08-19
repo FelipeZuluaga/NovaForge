@@ -1,148 +1,243 @@
-/* Asegura que el contenedor principal sea el marco de referencia */
+/* ==========================================================================
+   HERO SECTION - ESTRUCTURA GENERAL
+   ========================================================================== */
 .hero-container {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  padding: 8rem 2rem 4rem 2rem; /* Ajusta según tus necesidades */
-  background-color: #030712; /* Fondo oscuro base por si las imágenes tardan en cargar */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 140px 20px 80px 20px;
+    background-color: #030712;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
-/* Contenedor de las imágenes de fondo */
+
+/* FONDOS DINÁMICOS */
 .hero-background-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2; /* Se coloca detrás de las tarjetas y letras */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
 }
 
-/* Estilo individual para cada fondo */
 .hero-bg-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out; /* Transición suave de desvanecimiento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
-/* Fondo activo */
 .hero-bg-slide.active {
-  opacity: 0.25; /* Controla qué tan marcada se ve la imagen de fondo (25% recomendado para no opacar el texto) */
+    opacity: 0.25;
 }
 
-/* Capa oscura (Overlay) para mantener el contraste del texto */
 .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg, 
-    rgba(3, 7, 18, 0.6) 0%, 
-    rgba(3, 7, 18, 0.85) 100%
-  );
-  z-index: -1; /* Queda justo encima de las imágenes de fondo pero detrás del texto */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(3, 7, 18, 0.6) 0%, rgba(3, 7, 18, 0.95) 100%);
+    z-index: -1;
 }
 
-/* Asegura que el contenido y la grilla queden siempre al frente */
-.hero-content, 
-.hero-info-grid {
-  position: relative;
-  z-index: 2;
+/* ==========================================================================
+   TEXTOS Y CABECERA
+   ========================================================================== */
+.hero-content {
+    max-width: 850px;
+    text-align: center;
+    margin: 0 auto 50px auto;
 }
+
+.hero-tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    
+    /* Fondo con contraste brillante en tono azul/cian */
+    background: rgba(59, 130, 246, 0.15); 
+    
+    /* Borde neón brillante */
+    border: 1px solid rgba(59, 130, 246, 0.5); 
+    
+    /* Texto azul brillante legible */
+    color: #60a5fa; 
+    
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    
+    /* Sombra con brillo suave (Glow effect) */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    backdrop-filter: blur(8px); /* Efecto cristal para resaltar del fondo */
+}
+
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 800;
-    color: var(--nova-white);
-    line-height: 1.1;
-    letter-spacing: -1.5px;
+    color: #ffffff;
+    line-height: 1.15;
     margin-bottom: 20px;
 }
 
 .hero-title span {
-    color: var(--nova-blue);
+    color: var(--nova-blue, #3b82f6);
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.hero-subtitle {
+.hero-description {
     font-size: 1.15rem;
-    color: var(--nova-text-muted);
-    max-width: 750px; /* Lo aumenté un poco de 600px a 750px para que el subtítulo nuevo, que es más descriptivo, no quede en demasiadas líneas */
-    margin-bottom: 35px;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 35px auto;
+}
+
+/* ==========================================================================
+   ALINEACIÓN PERFECTA DE BOTONES
+   ========================================================================== */
+.hero-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    min-height: 52px;
+    cursor: pointer;
 }
 
 .btn-primary {
-    background-color: var(--nova-blue);
-    color: white;
-    padding: 18px 45px;
-    border: none;
-    border-radius: 14px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.3);
+    background-color: var(--nova-blue, #3b82f6);
+    color: #ffffff;
+    border: 1px solid var(--nova-blue, #3b82f6);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    background-color: var(--nova-accent);
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+    background-color: #2563eb;
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.45);
 }
 
-/* --- Grilla para las 3 Unidades de Negocio --- */
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   GRILLA Y TARJETAS DE PILARES
+   ========================================================================== */
 .hero-info-grid {
     display: grid;
-    /* Cambiado a minmax(280px, 1fr) para que las 3 tarjetas se organicen de forma excelente en pantallas medianas y grandes */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     width: 100%;
-    max-width: 1100px; /* Subido ligeramente para dar holgura a las 3 tarjetas */
-    margin-top: 80px;
+    max-width: 950px;
+    margin: 0 auto;
 }
 
 .info-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 30px;
-    border-radius: 24px;
+    background: rgba(17, 22, 37, 0.7);
+    border: 1px solid #2d3748;
+    padding: 30px;
+    border-radius: 20px;
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
     text-align: left;
 }
 
 .info-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--nova-blue);
-    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.5);
 }
 
-.info-icon {
-    font-size: 2rem;
-    margin-bottom: 20px;
+.info-card-badge {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #60a5fa;
+    background: rgba(59, 130, 246, 0.12);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
 }
 
 .info-card h3 {
-    color: var(--nova-white);
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    color: #ffffff;
+    font-size: 1.25rem;
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .info-card p {
-    color: var(--nova-text-muted);
-    line-height: 1.6;
+    color: #8b9bb4;
     font-size: 0.95rem;
+    line-height: 1.5;
     margin: 0;
 }
 
+/* ==========================================================================
+   RESPONSIVE (ADAPTACIÓN A MÓVILES)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .info-card {
-        text-align: center;
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-buttons-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btn {
+        width: 100%;
+    }
+
+    .hero-info-grid {
+        grid-template-columns: 1fr;
     }
 }
